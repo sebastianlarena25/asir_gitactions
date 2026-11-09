@@ -9,4 +9,3 @@ jobs:
     - name: Escribir hola
       run:
         echo "Hola"
-  
