@@ -1,0 +1,23 @@
+name: Ejecución de script
+on:
+  push:
+    #Si se especifica la rama a la que hacemos push
+    #branches: [ main ]
+
+jobs:
+  ejecutar_script:
+    runs-on: ubuntu-lastest
+    steps:
+    - name: descargar repositorio
+      uses: actions/checkout@v5
+    
+    - name: crear carpeta backup
+      run:
+        mkdir -p backup
+        
+    - name: crear zip comprimido
+      run: 
+        zip -r backup/backup_datos.zip datos
+        
+    - name: subir artefacto
+      uses: actions/upload-artifact@v5
