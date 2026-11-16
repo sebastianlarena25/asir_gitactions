@@ -1,0 +1,25 @@
+name: Ejecución de script
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  ejecutar_script:
+    runs-on: ubuntu-24.04
+    steps:
+    - name: descargar repositorio
+      uses: actions/checkout@v5
+      
+    - name: muestra usuario
+      run: 
+        whoami
+        
+    - name: permisos script
+      run: |
+        pwd
+        ls -l
+        chmod +x src/hola.sh
+       
+    - name: ejectuta script
+      run: 
+        ./src/hola.sh
