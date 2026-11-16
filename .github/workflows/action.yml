@@ -6,7 +6,7 @@ on:
 
 jobs:
   ejecutar_script:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
     - name: descargar repositorio
       uses: actions/checkout@v5
@@ -21,3 +21,6 @@ jobs:
         
     - name: subir artefacto
       uses: actions/upload-artifact@v5
+      with:
+        name: backup-datos
+        path: backup/backup_datos.zip
